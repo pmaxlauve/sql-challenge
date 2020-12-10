@@ -5,18 +5,18 @@ dept_name VARCHAR
 
 dept_emp
 ---
-emp_no int FK
+emp_no int FK >- employees.emp_no
 dept_no VARCHAR FK >- departments.dept_no
 
 dept_manager
 --
 dept_no VARCHAR FK >- departments.dept_no
-emp_no int FK - dept_emp.emp_no
+emp_no int FK >- employees.emp_no
 
 employees
 ---
-emp_no int PK
-emp_title VARCHAR FK
+emp_no int PK FK - salaries.emp_no
+emp_title VARCHAR FK >- titles.title_id
 birth_date date
 first_name VARCHAR
 last_name VARCHAR
