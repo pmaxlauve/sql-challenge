@@ -22,3 +22,14 @@ INNER JOIN employees AS e
 ON e.emp_no = dm.emp_no
 INNER JOIN departments AS d
 ON d.dept_no = dm.dept_no;
+
+
+SELECT de.emp_no,
+	e.last_name,
+	e.first_name,
+	d.dept_name
+FROM dept_emp AS de
+INNER JOIN employees AS e
+ON e.emp_no = de.emp_no
+LEFT JOIN departments AS d
+ON d.dept_no = de.dept_no;
