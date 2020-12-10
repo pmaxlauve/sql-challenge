@@ -1,3 +1,6 @@
+
+--List employee number, last name, first name, sex and salary
+
 SELECT e.emp_no,
 	e.first_name,
 	e.last_name,
@@ -7,10 +10,15 @@ FROM employees AS e
 INNER JOIN salaries AS s
 ON e.emp_no = s.emp_no;
 
+
+--first and last name and hire date for employees hired in 1986
+
 SELECT first_name, last_name, hire_date
 FROM employees
 WHERE hire_date < '1987-01-01' AND hire_date > '1985-12-31';
 
+
+--manager of each department with dept #, dept name, employee #, and last/first name
 
 SELECT dm.dept_no,
 	d.dept_name,
@@ -24,6 +32,8 @@ INNER JOIN departments AS d
 ON d.dept_no = dm.dept_no;
 
 
+--list employee #, last/first name, and dept name for each employee
+
 SELECT de.emp_no,
 	e.last_name,
 	e.first_name,
@@ -36,10 +46,14 @@ ON d.dept_no = de.dept_no
 ORDER BY de.emp_no;
 
 
+--Find all "Hercules B." and list first/last name, and sex
+
 SELECT first_name, last_name, sex
 FROM employees
 WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
 
+
+--For employees in Sales dept; list employee#, last/first name, and dept. name.
 
 SELECT de.emp_no,
 	e.last_name,
@@ -53,6 +67,8 @@ ON d.dept_no = de.dept_no
 WHERE de.dept_no = 'd007';
 
 
+--For employees in Sales and Development depts; list employee#, last/first name, and dept. name.
+
 SELECT de.emp_no,
 	e.last_name,
 	e.first_name,
@@ -64,6 +80,8 @@ LEFT JOIN departments AS d
 ON d.dept_no = de.dept_no
 WHERE de.dept_no = 'd007' OR de.dept_no = 'd005';
 
+
+--Group by last name to determine the most common last names
 
 SELECT last_name, COUNT(last_name) AS "Surname Frequency"
 FROM employees
