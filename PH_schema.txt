@@ -1,10 +1,18 @@
+
+--create "titles"
+
 CREATE TABLE titles (
 	title_id VARCHAR NOT NULL,
 	title VARCHAR,
 	PRIMARY KEY (title_id)
 );
 
+--check to make sure "titles" imported correctly
+
 SELECT * FROM titles;
+
+
+--create "employees"
 
 CREATE TABLE employees (
 	emp_no INTEGER NOT NULL,
@@ -18,16 +26,25 @@ CREATE TABLE employees (
 	FOREIGN KEY (emp_title) REFERENCES titles(title_id)
 );
 
+--check to make sure "employees" imported correctly
+
 SELECT * FROM employees;
 
 
+--create "departments"
 CREATE TABLE departments (
 	dept_no VARCHAR NOT NULL,
 	dept_name VARCHAR,
 	PRIMARY KEY (dept_no)
 );
 
+
+--check to make sure "departemnts" imported correctly
+
 SELECT * FROM departments;
+
+
+--create "salaries"
 
 CREATE TABLE salaries (
 	emp_no INTEGER NOT NULL,
@@ -36,9 +53,12 @@ CREATE TABLE salaries (
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
+--check to make sure "salaries" imported correctly
+
 SELECT * FROM salaries;
 
 
+-- create "dept_manager"
 
 CREATE TABLE dept_manager (
 	dept_no VARCHAR NOT NULL,
@@ -48,8 +68,13 @@ CREATE TABLE dept_manager (
 	FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
 
+
+--check to make sure "dept_manager" imported correctly
+
 SELECT * FROM dept_manager;
 
+
+-- create "dept_emp"
 
 CREATE TABLE dept_emp (
 	emp_no INTEGER NOT NULL,
@@ -58,5 +83,7 @@ CREATE TABLE dept_emp (
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
 	FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
+
+--check to make sure "dept_emp" imported correctly
 
 SELECT * FROM dept_emp;
