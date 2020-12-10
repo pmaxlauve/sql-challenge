@@ -63,3 +63,9 @@ ON e.emp_no = de.emp_no
 LEFT JOIN departments AS d
 ON d.dept_no = de.dept_no
 WHERE de.dept_no = 'd007' OR de.dept_no = 'd005';
+
+
+SELECT last_name, COUNT(last_name) AS "Surname Frequency"
+FROM employees
+GROUP BY last_name
+ORDER BY "Surname Frequency" DESC;
